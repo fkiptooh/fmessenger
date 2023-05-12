@@ -1,3 +1,4 @@
+import AuthContext from './context/AuthContext'
 import ToasterContext from './context/ToasterContext'
 import './globals.css'
 
@@ -14,9 +15,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+       <AuthContext>
         <ToasterContext />
         {children}
-        </body>
+       </AuthContext>
+      </body>
     </html>
   )
 }
