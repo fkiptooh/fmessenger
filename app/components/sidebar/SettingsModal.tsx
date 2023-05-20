@@ -8,6 +8,9 @@ import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import Modal from "../Modal";
 import Input from "../inputs/Input";
+import Image from "next/image";
+import { CldUploadButton } from "next-cloudinary";
+import Button from "../Button";
 
 interface SettingsModalProps {
     currentUser?: User,
@@ -48,7 +51,7 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
 
     const onSubmit: SubmitHandler<FieldValues> = (data) => {
         setIsLoading(true)
-        axios.post(`/api/settings`)
+        axios.post(`/api/settings`, data)
         .then(()=>{
             router.refresh()
             onClose()
@@ -91,7 +94,71 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
                             required
                             register={register}
                         />
+                        <div>
+                            <label 
+                                htmlFor="photo"
+                                className="
+                                    block
+                                    text-sm
+                                    font-medium
+                                    leading-6
+                                    text-gray-600
+                            ">
+                                Photo
+                            </label>
+                            <div className="
+                                mt-2
+                                flex
+                                items-center
+                                gap-x-3
+                            ">
+                                <Image
+                                    width="48"
+                                    height="48"
+                                    className="rounded-full"
+                                    src={image || currentUser?.image || '/images/placeholder.jpg'}
+                                    alt="Avartar"
+                                />
+                                <CldUploadButton
+                                    options={{ maxFiles: 1}}
+                                    onUpload={handleUpload}
+                                    uploadPreset="oi33bf2h"
+                                >
+                                <Button
+                                    disabled={isLoading}
+                                    secondary
+                                    type="button"
+                                >
+                                    Change Profile Photo
+                                </Button>
+                                </CldUploadButton>
+                            </div>
+                        </div>
                     </div>
+                </div>
+                <div 
+                    className="
+                        mt-2
+                        flex
+                        items-center
+                        justify-end
+                        gap-x-6
+                    "
+                >
+                    <Button
+                        disabled={isLoading}
+                        secondary
+                        type="button"
+                        onClick={onClose}
+                    >
+                        Cancel
+                    </Button>
+                    <Button
+                        disabled={isLoading}
+                        type="submit"
+                    >
+                        Save
+                    </Button>
                 </div>
             </div>
         </form>
