@@ -1,5 +1,5 @@
-'use client';
 import clsx from "clsx";
+
 interface ButtonProps {
     type?: 'button' | 'submit' | 'reset' | undefined;
     fullWidth?: boolean;
@@ -10,7 +10,7 @@ interface ButtonProps {
     disabled?: boolean; 
 }
 const Button: React.FC<ButtonProps>=({
-    type,
+    type="button",
     fullWidth,
     children,
     onClick,
@@ -30,7 +30,7 @@ const Button: React.FC<ButtonProps>=({
             px-3
             py-2
             text-sm
-            fount-semibold
+            font-semibold
             focus-visible:outline
             focus-visible:outline-2
             focus-visible:outline-offset-2
@@ -38,7 +38,7 @@ const Button: React.FC<ButtonProps>=({
         disabled && 'opacity-50 cursor-default',
         fullWidth && 'w-full',
         secondary ? 'text-gray-900' : 'text-white',
-        danger && 'text-rose-500 hover:bg-rose-600 focus-visible:outline-rose-600',
+        danger && 'bg-rose-500 hover:bg-rose-600 focus-visible:outline-rose-600',
         !secondary && !danger && 'bg-sky-500 hover:bg-sky-600 focus-visible:outline-sky-600'
         )}
     >
