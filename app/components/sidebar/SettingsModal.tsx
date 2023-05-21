@@ -114,10 +114,10 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
                             ">
                                 <Image
                                     width="48"
-                                    height="48"
-                                    className="rounded-full"
+                                    height="48" 
+                                    className="rounded-full" 
                                     src={image || currentUser?.image || '/images/placeholder.jpg'}
-                                    alt="Avartar"
+                                    alt="Avatar"
                                 />
                                 <CldUploadButton
                                     options={{ maxFiles: 1}}
