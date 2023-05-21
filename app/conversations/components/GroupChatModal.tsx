@@ -130,7 +130,7 @@ const GroupChatModal:React.FC<GroupChatModalProps> = ({
                     disabled={isLoading}
                     type="submit"
                 >
-                    Create Group
+                    Create
                 </Button>
             </div>
         </form>
