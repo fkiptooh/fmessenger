@@ -186,14 +186,14 @@ const AuthForm=()=> {
                             icon={BsGoogle}
                             onClick={()=> socialAction('google')}
                         />
-                        <AuthSocialButton
+                        {/* <AuthSocialButton
                             icon={BsFacebook}
                             onClick={()=> socialAction('facebook')}
                         />
                         <AuthSocialButton
                             icon={BsTwitter}
                             onClick={()=> socialAction('twitter')}
-                        />
+                        /> */}
                     </div>
                 </div>
                 <div className="
