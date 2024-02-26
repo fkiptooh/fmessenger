@@ -9,6 +9,7 @@ module.exports = {
     extend: {},
   },
   plugins: [
+    // css native form-input
     require("@tailwindcss/forms")({
       strategy: 'class'
     })
